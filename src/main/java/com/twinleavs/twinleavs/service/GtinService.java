@@ -28,6 +28,8 @@ public class GtinService {
                 .collect(Collectors.toList());
     }
 
+
+
     public List<Batch> getLatestNegativeOrZeroQuantityBatches() {
         return batchRepository.findNegativeOrZeroQuantityBatches(PageRequest.of(0, 1));
     }
