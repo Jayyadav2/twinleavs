@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface BatchRepository extends JpaRepository<Batch, Long> {
     @Query("SELECT b FROM Batch b WHERE b.availableQuantity > 0")
-    List<Batch> findPositiveQuantityBatches();
+    List<Batch> findBatchesWithPositiveQuantity();
 
     @Query("SELECT b FROM Batch b WHERE b.availableQuantity <= 0 ORDER BY b.inwardedOn DESC")
-    List<Batch> findNegativeOrZeroQuantityBatches(SpringDataWebProperties.Pageable pageable);
+    List<Batch> findLatestBatchesWithNegativeOrZeroQuantity();
 }
-}
+
